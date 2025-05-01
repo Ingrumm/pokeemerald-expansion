@@ -847,43 +847,45 @@ void ChooseStarter(void)
 
 static void CB2_GiveStarter(void)
 {
-    u16 starterMon;
+    //u16 starterMon;
 
-    *GetVarPointer(VAR_STARTER_MON) = gSpecialVar_Result;
-    starterMon = GetStarterPokemon(gSpecialVar_Result);
-    ScriptGiveMon(starterMon, 5, ITEM_NONE);
+    //*GetVarPointer(VAR_STARTER_MON) = gSpecialVar_Result;
+    //starterMon = GetStarterPokemon(gSpecialVar_Result);
+    //ScriptGiveMon(starterMon, 5, ITEM_NONE); //where IVs are handled
     ResetTasks();
-    PlayBattleBGM();
-    SetMainCallback2(CB2_StartFirstBattle);
-    BattleTransition_Start(B_TRANSITION_BLUR);
-}
-
-static void CB2_StartFirstBattle(void)
-{
-    UpdatePaletteFade();
-    RunTasks();
-
-    if (IsBattleTransitionDone() == TRUE)
-    {
-        gBattleTypeFlags = BATTLE_TYPE_FIRST_BATTLE;
-        gMain.savedCallback = CB2_EndFirstBattle;
-        FreeAllWindowBuffers();
-        SetMainCallback2(CB2_InitBattle);
-        RestartWildEncounterImmunitySteps();
-        ClearPoisonStepCounter();
-        IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-        IncrementGameStat(GAME_STAT_WILD_BATTLES);
-        IncrementDailyWildBattles();
-        TryUpdateGymLeaderRematchFromWild();
-    }
-}
-
-static void CB2_EndFirstBattle(void)
-{
-    Overworld_ClearSavedMusic();
-    DowngradeBadPoison();
+    FreeAllWindowBuffers();
     SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+    //PlayBattleBGM();
+    //SetMainCallback2(CB2_StartFirstBattle);
+    //BattleTransition_Start(B_TRANSITION_BLUR);
 }
+
+// static void CB2_StartFirstBattle(void)
+// {
+//     UpdatePaletteFade();
+//     RunTasks();
+
+//     if (IsBattleTransitionDone() == TRUE)
+//     {
+//         gBattleTypeFlags = BATTLE_TYPE_FIRST_BATTLE;
+//         gMain.savedCallback = CB2_EndFirstBattle;
+//         FreeAllWindowBuffers();
+//         SetMainCallback2(CB2_InitBattle);
+//         RestartWildEncounterImmunitySteps();
+//         ClearPoisonStepCounter();
+//         IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+//         IncrementGameStat(GAME_STAT_WILD_BATTLES);
+//         IncrementDailyWildBattles();
+//         TryUpdateGymLeaderRematchFromWild();
+//     }
+// }
+
+// static void CB2_EndFirstBattle(void)
+// {
+//     Overworld_ClearSavedMusic();
+//     DowngradeBadPoison();
+//     SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+// }
 
 static void TryUpdateGymLeaderRematchFromWild(void)
 {
