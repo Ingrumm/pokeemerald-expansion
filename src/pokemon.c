@@ -910,6 +910,17 @@ static const u8 sGetMonDataEVConstants[] =
     MON_DATA_SPATK_EV
 };
 
+static const u8 sGetMonDataIVConstants[] =
+{
+    MON_DATA_HP_IV,
+    MON_DATA_ATK_IV,
+    MON_DATA_DEF_IV,
+    MON_DATA_SPEED_IV,
+    MON_DATA_SPATK_IV,
+    MON_DATA_SPDEF_IV
+};
+
+
 // For stat-raising items
 static const u8 sStatsToRaise[] =
 {
@@ -4759,6 +4770,110 @@ u16 GetEvolutionTargetSpecies(struct Pokemon *mon, enum EvolutionMode mode, u16 
             case EVO_OVERWORLD_STEPS:
                 if (mon == GetFirstLiveMon() && gFollowerSteps >= evolutions[i].param)
                     targetSpecies = evolutions[i].targetSpecies;
+                break;
+            case EVO_LEVEL_MOD_2_0:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%4 == 0 || nature%4 == 1){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
+                break;
+            case EVO_LEVEL_MOD_2_1:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%4 == 2 || nature%4 == 3){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
+                break;
+            case EVO_LEVEL_MOD_3_0:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%3 == 0){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
+                break;
+            case EVO_LEVEL_MOD_3_1:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%3 == 1){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
+                break;
+            case EVO_LEVEL_MOD_3_2:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%3 == 2){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
+                break;
+            case EVO_LEVEL_MOD_8_0:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%8 == 0){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
+                break;
+            case EVO_LEVEL_MOD_8_1:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%8 == 1){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
+                break;
+            case EVO_LEVEL_MOD_8_2:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%8 == 2){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
+                break;
+            case EVO_LEVEL_MOD_8_3:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%8 == 3){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
+                break;
+            case EVO_LEVEL_MOD_8_4:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%8 == 4){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
+                break;
+            case EVO_LEVEL_MOD_8_5:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%8 == 5){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
+                break;
+            case EVO_LEVEL_MOD_8_6:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%8 == 6){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
+                break;
+            case EVO_LEVEL_MOD_8_7:
+                if (evolutions[i].param <= level){
+                    u8 nature = GetNature(mon);
+                    if(nature%8 == 7){
+                        targetSpecies = evolutions[i].targetSpecies;
+                    }
+                }
                 break;
             }
         }

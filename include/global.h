@@ -200,8 +200,42 @@ struct Time
 };
 
 #include "constants/items.h"
+#include "ui_birch_case.h"
 #define ITEM_FLAGS_COUNT ((ITEMS_COUNT / 8) + ((ITEMS_COUNT % 8) ? 1 : 0))
 
+struct MonChoiceData{ // This is the format used to define a mon, everything left out will default to 0 and be blank or use the in game defaults
+    u16 species; // Mon Species ID
+    u8 level;   // Mon Level 5
+    u16 item;   // Held item, just ITEM_POTION
+    u8 ball; // this ballid does not change the design of the ball in the case, only in summary/throwing out to battle 
+    u8 nature; // NATURE_JOLLY, NATURE_ETC...
+    u8 abilityNum; // this is either 0/1 in vanilla or 0/1/2 in Expansion, its the ability num your mon uses from its possible abilities, not the ability constant itself
+    u8 gender; // MON_MALE, MON_FEMALE, MON_GENDERLESS
+    u8 evs[6]; // use format {255, 255, 0, 0, 0, 0}
+    u8 ivs[6]; // use format {31, 31, 31, 31, 31, 31}
+    u16 moves[4]; // use format {MOVE_FIRE_BLAST, MOVE_SHEER_COLD, MOVE_NONE, MOVE_NONE}
+    bool8 ggMaxFactor;      // only work in Expansion set to 0 otherwise or leave blank
+    u8 teraType;            // only work in Expansion set to 0 otherwise or leave blank
+    bool8 isShinyExpansion; // only work in Expansion set to 0 otherwise or leave blank
+    bool8 isSecret;
+};
+
+struct ItemChoiceData {
+    u16 item;
+    u8 count;
+    bool8 isSecret;
+};
+
+struct MonHiddenInfo{
+    bool8 hpRevealed;
+    bool8 atkRevealed;
+    bool8 defRevealed;
+    bool8 spatkRevealed;
+    bool8 spdefRevealed;
+    bool8 speedRevealed;
+    bool8 abilityRevealed;
+    bool8 natureRevealed;
+};
 struct SaveBlock3
 {
 #if OW_USE_FAKE_RTC
@@ -214,6 +248,12 @@ struct SaveBlock3
     u8 dexNavSearchLevels[NUM_SPECIES];
 #endif
     u8 dexNavChain;
+    struct MonChoiceData briefcaseMons[9];
+    struct ItemChoiceData briefcaseItems[9];
+    struct MonHiddenInfo briefcaseHidden[9];
+    u8 revealsRemaining;
+    u8 currentSplit;
+
 }; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;
@@ -526,6 +566,7 @@ struct RankingHall2P
     u8 language;
     //u8 padding;
 };
+
 
 struct SaveBlock2
 {

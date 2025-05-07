@@ -18,6 +18,163 @@ script BagTalk_EventScript_BagCheck{
 
 script BagTalk_EventScript_RoxanneTest{
     lockall
-    showteampreview(265)
+    setvar(VAR_CURRENT_SPLIT, 1)
     releaseall
+}
+
+script BagTalk_EventScript_Split1Done{
+    lock
+    setflag(FLAG_SPLIT_1_DONE)
+    setvar(VAR_CURRENT_SPLIT, 2)
+    msgbox("Split 1 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split2Done{
+    lock
+    setflag(FLAG_SPLIT_2_DONE)
+    setvar(VAR_CURRENT_SPLIT, 3)
+    msgbox("Split 2 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split3Done{
+    lock
+    setflag(FLAG_SPLIT_3_DONE)
+    setvar(VAR_CURRENT_SPLIT, 4)
+    msgbox("Split 3 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split4Done{
+    lock
+    setflag(FLAG_SPLIT_4_DONE)
+    setvar(VAR_CURRENT_SPLIT, 5)
+    msgbox("Split 4 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split5Done{
+    lock
+    setflag(FLAG_SPLIT_5_DONE)
+    setvar(VAR_CURRENT_SPLIT, 6)
+    msgbox("Split 5 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split6Done{
+    lock
+    setflag(FLAG_SPLIT_6_DONE)
+    msgbox("Split 6 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split7Done{
+    lock
+    setflag(FLAG_SPLIT_7_DONE)
+    msgbox("Split 7 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split8Done{
+    lock
+    setflag(FLAG_SPLIT_8_DONE)
+    msgbox("Split 8 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split9Done{
+    lock
+    setflag(FLAG_SPLIT_9_DONE)
+    msgbox("Split 9 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split10Done{
+    lock
+    setflag(FLAG_SPLIT_10_DONE)
+    msgbox("Split 10 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split11Done{
+    lock
+    setflag(FLAG_SPLIT_11_DONE)
+    msgbox("Split 11 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split12Done{
+    lock
+    setflag(FLAG_SPLIT_12_DONE)
+    msgbox("Split 12 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split13Done{
+    lock
+    setflag(FLAG_SPLIT_13_DONE)
+    msgbox("Split 13 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split14Done{
+    lock
+    setflag(FLAG_SPLIT_14_DONE)
+    msgbox("Split 14 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split15Done{
+    lock
+    setflag(FLAG_SPLIT_15_DONE)
+    msgbox("Split 15 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split16Done{
+    lock
+    setflag(FLAG_SPLIT_16_DONE)
+    msgbox("Split 16 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split17Done{
+    lock
+    setflag(FLAG_SPLIT_17_DONE)
+    msgbox("Split 17 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split18Done{
+    lock
+    setflag(FLAG_SPLIT_18_DONE)
+    msgbox("Split 18 completed!")
+    release
+    end
+}
+
+script BagTalk_EventScript_Split19Done{
+    lock
+    setflag(FLAG_SPLIT_19_DONE)
+    msgbox("Split 19 completed!")
+    release
+    end
 }

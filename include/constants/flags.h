@@ -656,7 +656,7 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
+#define FLAG_BRIEFCASE_OPENED  0x264 // Unused Flag
 #define FLAG_UNUSED_0x265  0x265 // Unused Flag
 #define FLAG_UNUSED_0x266  0x266 // Unused Flag
 #define FLAG_UNUSED_0x267  0x267 // Unused Flag
@@ -1222,25 +1222,25 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
-#define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
-#define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
-#define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
-#define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
-#define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
-#define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag
-#define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag
+#define FLAG_SPLIT_1_DONE                                           0x493 // Unused Flag
+#define FLAG_SPLIT_2_DONE                                           0x494 // Unused Flag
+#define FLAG_SPLIT_3_DONE                                           0x495 // Unused Flag
+#define FLAG_SPLIT_4_DONE                                           0x496 // Unused Flag
+#define FLAG_SPLIT_5_DONE                                           0x497 // Unused Flag
+#define FLAG_SPLIT_6_DONE                                           0x498 // Unused Flag
+#define FLAG_SPLIT_7_DONE                                           0x499 // Unused Flag
+#define FLAG_SPLIT_8_DONE                                           0x49A // Unused Flag
+#define FLAG_SPLIT_9_DONE                                           0x49B // Unused Flag
+#define FLAG_SPLIT_10_DONE                                          0x49C // Unused Flag
+#define FLAG_SPLIT_11_DONE                                          0x49D // Unused Flag
+#define FLAG_SPLIT_12_DONE                                          0x49E // Unused Flag
+#define FLAG_SPLIT_13_DONE                                          0x49F // Unused Flag
+#define FLAG_SPLIT_14_DONE                                          0x4A0 // Unused Flag
+#define FLAG_SPLIT_15_DONE                                          0x4A1 // Unused Flag
+#define FLAG_SPLIT_16_DONE                                          0x4A2 // Unused Flag
+#define FLAG_SPLIT_17_DONE                                          0x4A3 // Unused Flag
+#define FLAG_SPLIT_18_DONE                                          0x4A4 // Unused Flag
+#define FLAG_SPLIT_19_DONE                                          0x4A5 // Unused Flag
 #define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag
 #define FLAG_UNUSED_0x4A7                                           0x4A7 // Unused Flag
 #define FLAG_UNUSED_0x4A8                                           0x4A8 // Unused Flag

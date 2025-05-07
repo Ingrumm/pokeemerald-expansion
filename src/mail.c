@@ -212,22 +212,6 @@ static const struct MailGraphics sMailGraphics[] = {
         .unused = 0x340,
         .textColor = RGB(10, 10, 10),
         .textShadow = RGB(25, 25, 25),
-    },
-    [ITEM_TO_MAIL(ITEM_FAB_MAIL)] = {
-        .palette = gMailPalette_Fab,
-        .tiles = gMailTiles_Fab,
-        .tileMap = gMailTilemap_Fab,
-        .unused = 0x2a0,
-        .textColor = RGB(10, 10, 10),
-        .textShadow = RGB(25, 25, 25),
-    },
-    [ITEM_TO_MAIL(ITEM_RETRO_MAIL)] = {
-        .palette = gMailPalette_Retro,
-        .tiles = gMailTiles_Retro,
-        .tileMap = gMailTilemap_Retro,
-        .unused = 0x520,
-        .textColor = RGB(10, 10, 10),
-        .textShadow = RGB(25, 25, 25),
     }
 };
 
@@ -318,22 +302,6 @@ static const struct MailLayout sMailLayouts_Wide[] = {
         .wordsXPos = 4,
         .lines = sLineLayouts_Wide,
     },
-    [ITEM_TO_MAIL(ITEM_FAB_MAIL)] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 8,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 4,
-        .lines = sLineLayouts_Wide,
-    },
-    [ITEM_TO_MAIL(ITEM_RETRO_MAIL)] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Wide),
-        .signatureYPos = 0,
-        .signatureWidth = 0,
-        .wordsYPos = 2,
-        .wordsXPos = 0,
-        .lines = sLineLayouts_Wide,
-    },
 };
 
 static const struct MailLineLayout sLineLayouts_Tall[] = {
@@ -422,22 +390,6 @@ static const struct MailLayout sMailLayouts_Tall[] = {
         .signatureYPos = 9,
         .signatureWidth = 96,
         .wordsYPos = 9,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
-    },
-    [ITEM_TO_MAIL(ITEM_FAB_MAIL)] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 17,
-        .signatureWidth = 104,
-        .wordsYPos = 15,
-        .wordsXPos = 30,
-        .lines = sLineLayouts_Tall,
-    },
-    [ITEM_TO_MAIL(ITEM_RETRO_MAIL)] = {
-        .numLines = ARRAY_COUNT(sLineLayouts_Tall),
-        .signatureYPos = 9,
-        .signatureWidth = 96,
-        .wordsYPos = 5,
         .wordsXPos = 30,
         .lines = sLineLayouts_Tall,
     },

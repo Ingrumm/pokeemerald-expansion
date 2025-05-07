@@ -2050,7 +2050,7 @@
 	callstd STD_FIND_ITEM
 	.endm
 
-	@ Equivalent to giveitem but for a single decoration.
+	@ Equivalent to  but for a single decoration.
 	.macro givedecoration decoration:req
 	setorcopyvar VAR_0x8000, \decoration
 	callstd STD_OBTAIN_DECORATION

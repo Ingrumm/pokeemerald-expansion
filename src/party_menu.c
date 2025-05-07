@@ -2821,6 +2821,7 @@ static void PrintMessage(const u8 *text)
     AddTextPrinterParameterized2(WIN_MSG, FONT_NORMAL, text, GetPlayerTextSpeedDelay(), 0, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
 }
 
+
 static void PartyMenuDisplayYesNoMenu(void)
 {
     CreateYesNoMenu(&sPartyMenuYesNoWindowTemplate, 0x4F, 13, 0);
@@ -5679,7 +5680,12 @@ void ItemUseCB_RareCandy(u8 taskId, TaskFunc task)
 
             DisplayPartyMenuMessage(gStringVar4, TRUE);
             ScheduleBgCopyTilemapToVram(2);
-            gTasks[taskId].func = Task_DisplayLevelUpStatsPg1;
+            //gTasks[taskId].func = Task_DisplayLevelUpStatsPg1; <- original
+            //my garbage code below//
+            //PlaySE(SE_SELECT);
+            sInitialLevel += 1; // so the Pokemon doesn't learn a move meant for its previous level
+            gTasks[taskId].func = Task_TryLearnNewMoves;
+            //my garbage code above//
         }
         else
         {

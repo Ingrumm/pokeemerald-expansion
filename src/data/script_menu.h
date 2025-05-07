@@ -773,9 +773,14 @@ static const struct MenuAction MultichoiceList_TagMatchType[] =
 
 static const struct MenuAction MultichoiceList_BerryPlot[] =
 {
-    {COMPOUND_STRING("FERTILIZE")},
-    {COMPOUND_STRING("PLANT BERRY")},
-    {gText_Exit},
+    {COMPOUND_STRING("Ability")},
+    {COMPOUND_STRING("Nature")},
+    {COMPOUND_STRING("HP")},
+    {COMPOUND_STRING("ATK")},
+    {COMPOUND_STRING("DEF")},
+    {COMPOUND_STRING("SPATK")},
+    {COMPOUND_STRING("SPDEF")},
+    {COMPOUND_STRING("SPEED")},
 };
 
 static const struct MenuAction MultichoiceList_Exit[] =

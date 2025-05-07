@@ -164,7 +164,6 @@ static void GenerateStarterPokemon(void)
     sStarterMon[0] = GetValidSpecies();
     sStarterMon[1] = GetValidSpecies();
     sStarterMon[2] = GetValidSpecies();
-
 }
 
 

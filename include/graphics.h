@@ -706,8 +706,8 @@ extern const u32 gItemIcon_TropicMail[];
 extern const u32 gItemIconPalette_TropicMail[];
 extern const u32 gItemIcon_DreamMail[];
 extern const u32 gItemIconPalette_DreamMail[];
-extern const u32 gItemIcon_FabMail[];
-extern const u32 gItemIconPalette_FabMail[];
+// extern const u32 gItemIcon_FabMail[];
+// extern const u32 gItemIconPalette_FabMail[];
 extern const u32 gItemIcon_RetroMail[];
 extern const u32 gItemIconPalette_RetroMail[];
 // Evolution Items

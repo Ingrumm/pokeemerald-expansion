@@ -13,6 +13,7 @@ struct Item
     u16 secondaryId;
     ItemUseFunc fieldUseFunc;
     const u8 *description;
+    const u8 *descriptionCase;
     const u8 *effect;
     u8 name[ITEM_NAME_LENGTH];
     u8 pluralName[ITEM_NAME_PLURAL_LENGTH];

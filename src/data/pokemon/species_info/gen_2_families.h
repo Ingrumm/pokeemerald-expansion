@@ -70,6 +70,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sChikoritaTeachableLearnset,
         .eggMoveLearnset = sChikoritaEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_BAYLEEF}),
+        .familyMembers = {SPECIES_CHIKORITA, SPECIES_BAYLEEF, SPECIES_MEGANIUM},
     },
 
     [SPECIES_BAYLEEF] =
@@ -137,6 +138,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sBayleefLevelUpLearnset,
         .teachableLearnset = sBayleefTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 32, SPECIES_MEGANIUM}),
+        .familyMembers = {SPECIES_CHIKORITA, SPECIES_BAYLEEF, SPECIES_MEGANIUM},
     },
 
     [SPECIES_MEGANIUM] =
@@ -222,6 +224,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sMeganiumLevelUpLearnset,
         .teachableLearnset = sMeganiumTeachableLearnset,
+        .familyMembers = {SPECIES_CHIKORITA, SPECIES_BAYLEEF, SPECIES_MEGANIUM},
     },
 #endif //P_FAMILY_CHIKORITA
 
@@ -293,6 +296,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sCyndaquilTeachableLearnset,
         .eggMoveLearnset = sCyndaquilEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 14, SPECIES_QUILAVA}),
+        .familyMembers = {SPECIES_CYNDAQUIL, SPECIES_QUILAVA, SPECIES_TYPHLOSION, SPECIES_TYPHLOSION_HISUI},
     },
 
     [SPECIES_QUILAVA] =
@@ -361,6 +365,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sQuilavaTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_TYPHLOSION},
                                 {EVO_NONE, 0, SPECIES_TYPHLOSION_HISUI}),
+        .familyMembers = {SPECIES_CYNDAQUIL, SPECIES_QUILAVA, SPECIES_TYPHLOSION, SPECIES_TYPHLOSION_HISUI},
     },
 
 #if P_UPDATED_EXP_YIELDS >= GEN_8
@@ -436,6 +441,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sTyphlosionLevelUpLearnset,
         .teachableLearnset = sTyphlosionTeachableLearnset,
         .formSpeciesIdTable = sTyphlosionFormSpeciesIdTable,
+        .familyMembers = {SPECIES_CYNDAQUIL, SPECIES_QUILAVA, SPECIES_TYPHLOSION, SPECIES_TYPHLOSION_HISUI},
     },
 
 #if P_HISUIAN_FORMS
@@ -501,6 +507,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sTyphlosionHisuiLevelUpLearnset,
         .teachableLearnset = sTyphlosionHisuiTeachableLearnset,
         .formSpeciesIdTable = sTyphlosionFormSpeciesIdTable,
+        .familyMembers = {SPECIES_CYNDAQUIL, SPECIES_QUILAVA, SPECIES_TYPHLOSION, SPECIES_TYPHLOSION_HISUI},
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_CYNDAQUIL
@@ -575,6 +582,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sTotodileTeachableLearnset,
         .eggMoveLearnset = sTotodileEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_CROCONAW}),
+        .familyMembers = {SPECIES_TOTODILE, SPECIES_CROCONAW, SPECIES_FERALIGATR},
     },
 
     [SPECIES_CROCONAW] =
@@ -643,6 +651,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sCroconawLevelUpLearnset,
         .teachableLearnset = sCroconawTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_FERALIGATR}),
+        .familyMembers = {SPECIES_TOTODILE, SPECIES_CROCONAW, SPECIES_FERALIGATR},
     },
 
     [SPECIES_FERALIGATR] =
@@ -718,6 +727,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sFeraligatrLevelUpLearnset,
         .teachableLearnset = sFeraligatrTeachableLearnset,
+        .familyMembers = {SPECIES_TOTODILE, SPECIES_CROCONAW, SPECIES_FERALIGATR},
     },
 #endif //P_FAMILY_TOTODILE
 
@@ -789,6 +799,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sSentretTeachableLearnset,
         .eggMoveLearnset = sSentretEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 15, SPECIES_FURRET}),
+        .familyMembers = {SPECIES_SENTRET, SPECIES_FURRET},
     },
 
     [SPECIES_FURRET] =
@@ -854,6 +865,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sFurretLevelUpLearnset,
         .teachableLearnset = sFurretTeachableLearnset,
+        .familyMembers = {SPECIES_SENTRET, SPECIES_FURRET},
     },
 #endif //P_FAMILY_SENTRET
 
@@ -933,6 +945,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sHoothootTeachableLearnset,
         .eggMoveLearnset = sHoothootEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_NOCTOWL}),
+        .familyMembers = {SPECIES_HOOTHOOT, SPECIES_NOCTOWL},
     },
 
     [SPECIES_NOCTOWL] =
@@ -1004,6 +1017,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sNoctowlLevelUpLearnset,
         .teachableLearnset = sNoctowlTeachableLearnset,
+        .familyMembers = {SPECIES_HOOTHOOT, SPECIES_NOCTOWL},
     },
 #endif //P_FAMILY_HOOTHOOT
 
@@ -1088,6 +1102,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sLedybaTeachableLearnset,
         .eggMoveLearnset = sLedybaEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_LEDIAN}),
+        .familyMembers = {SPECIES_LEDYBA, SPECIES_LEDIAN},
     },
 
     [SPECIES_LEDIAN] =
@@ -1169,6 +1184,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sLedianLevelUpLearnset,
         .teachableLearnset = sLedianTeachableLearnset,
+        .familyMembers = {SPECIES_LEDYBA, SPECIES_LEDIAN},
     },
 #endif //P_FAMILY_LEDYBA
 
@@ -1244,6 +1260,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sSpinarakTeachableLearnset,
         .eggMoveLearnset = sSpinarakEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 22, SPECIES_ARIADOS}),
+        .familyMembers = {SPECIES_SPINARAK, SPECIES_ARIADOS},
     },
 
     [SPECIES_ARIADOS] =
@@ -1317,6 +1334,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sAriadosLevelUpLearnset,
         .teachableLearnset = sAriadosTeachableLearnset,
+        .familyMembers = {SPECIES_SPINARAK, SPECIES_ARIADOS},
     },
 #endif //P_FAMILY_SPINARAK
 
@@ -1390,6 +1408,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sChinchouTeachableLearnset,
         .eggMoveLearnset = sChinchouEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 27, SPECIES_LANTURN}),
+        .familyMembers = {SPECIES_CHINCHOU, SPECIES_LANTURN},
     },
 
     [SPECIES_LANTURN] =
@@ -1459,6 +1478,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sLanturnLevelUpLearnset,
         .teachableLearnset = sLanturnTeachableLearnset,
+        .familyMembers = {SPECIES_CHINCHOU, SPECIES_LANTURN},
     },
 #endif //P_FAMILY_CHINCHOU
 
@@ -1531,6 +1551,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sTogepiTeachableLearnset,
         .eggMoveLearnset = sTogepiEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_FRIENDSHIP, 0, SPECIES_TOGETIC}),
+        .familyMembers = {SPECIES_TOGEPI, SPECIES_TOGETIC, SPECIES_TOGEKISS},
     },
 
     [SPECIES_TOGETIC] =
@@ -1598,6 +1619,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sTogeticLevelUpLearnset,
         .teachableLearnset = sTogeticTeachableLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_SHINY_STONE, SPECIES_TOGEKISS}),
+        .familyMembers = {SPECIES_TOGEPI, SPECIES_TOGETIC, SPECIES_TOGEKISS},
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -1678,6 +1700,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sTogekissLevelUpLearnset,
         .teachableLearnset = sTogekissTeachableLearnset,
+        .familyMembers = {SPECIES_TOGEPI, SPECIES_TOGETIC, SPECIES_TOGEKISS},
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_TOGEPI
@@ -1752,6 +1775,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sNatuTeachableLearnset,
         .eggMoveLearnset = sNatuEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_XATU}),
+        .familyMembers = {SPECIES_NATU, SPECIES_XATU},
     },
 
     [SPECIES_XATU] =
@@ -1834,6 +1858,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sXatuLevelUpLearnset,
         .teachableLearnset = sXatuTeachableLearnset,
+        .familyMembers = {SPECIES_NATU, SPECIES_XATU},
     },
 #endif //P_FAMILY_NATU
 
@@ -1908,6 +1933,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sMareepTeachableLearnset,
         .eggMoveLearnset = sMareepEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 15, SPECIES_FLAAFFY}),
+        .familyMembers = {SPECIES_MAREEP, SPECIES_FLAAFFY, SPECIES_AMPHAROS},
     },
 
     [SPECIES_FLAAFFY] =
@@ -1977,6 +2003,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sFlaaffyLevelUpLearnset,
         .teachableLearnset = sFlaaffyTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_AMPHAROS}),
+        .familyMembers = {SPECIES_MAREEP, SPECIES_FLAAFFY, SPECIES_AMPHAROS},
     },
 
 #define AMPHAROS_DEFENSE (P_UPDATED_STATS >= GEN_6 ? 85 : 75)
@@ -2056,6 +2083,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sAmpharosTeachableLearnset,
         .formSpeciesIdTable = sAmpharosFormSpeciesIdTable,
         .formChangeTable = sAmpharosFormChangeTable,
+        .familyMembers = {SPECIES_MAREEP, SPECIES_FLAAFFY, SPECIES_AMPHAROS},
     },
 
 #if P_MEGA_EVOLUTIONS
@@ -2204,6 +2232,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sAzurillTeachableLearnset,
         .eggMoveLearnset = sAzurillEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_FRIENDSHIP, 0, SPECIES_MARILL}),
+        .familyMembers = {SPECIES_AZURILL, SPECIES_MARILL, SPECIES_AZUMARILL},
     },
 #endif //P_GEN_3_CROSS_EVOS
 
@@ -2277,6 +2306,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sMarillTeachableLearnset,
         .eggMoveLearnset = sMarillEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_AZUMARILL}),
+        .familyMembers = {SPECIES_AZURILL, SPECIES_MARILL, SPECIES_AZUMARILL},
     },
 
     [SPECIES_AZUMARILL] =
@@ -2357,6 +2387,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sAzumarillLevelUpLearnset,
         .teachableLearnset = sAzumarillTeachableLearnset,
+        .familyMembers = {SPECIES_AZURILL, SPECIES_MARILL, SPECIES_AZUMARILL},
     },
 #endif //P_FAMILY_MARILL
 
@@ -2430,6 +2461,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sBonslyTeachableLearnset,
         .eggMoveLearnset = sBonslyEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_MOVE, MOVE_MIMIC, SPECIES_SUDOWOODO}),
+        .familyMembers = {SPECIES_BONSLY, SPECIES_SUDOWOODO},
     },
 #endif //P_GEN_4_CROSS_EVOS
 
@@ -2514,6 +2546,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sSudowoodoLevelUpLearnset,
         .teachableLearnset = sSudowoodoTeachableLearnset,
         .eggMoveLearnset = sSudowoodoEggMoveLearnset,
+        .familyMembers = {SPECIES_BONSLY, SPECIES_SUDOWOODO},
     },
 #endif //P_FAMILY_SUDOWOODO
 
@@ -2590,6 +2623,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sHoppipTeachableLearnset,
         .eggMoveLearnset = sHoppipEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_SKIPLOOM}),
+        .familyMembers = {SPECIES_HOPPIP, SPECIES_SKIPLOOM, SPECIES_JUMPLUFF},
     },
 
     [SPECIES_SKIPLOOM] =
@@ -2667,6 +2701,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sSkiploomLevelUpLearnset,
         .teachableLearnset = sSkiploomTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 27, SPECIES_JUMPLUFF}),
+        .familyMembers = {SPECIES_HOPPIP, SPECIES_SKIPLOOM, SPECIES_JUMPLUFF},
     },
 
     [SPECIES_JUMPLUFF] =
@@ -2749,6 +2784,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sJumpluffLevelUpLearnset,
         .teachableLearnset = sJumpluffTeachableLearnset,
+        .familyMembers = {SPECIES_HOPPIP, SPECIES_SKIPLOOM, SPECIES_JUMPLUFF},
     },
 #endif //P_FAMILY_HOPPIP
 
@@ -2831,6 +2867,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sAipomTeachableLearnset,
         .eggMoveLearnset = sAipomEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_MOVE, MOVE_DOUBLE_HIT, SPECIES_AMBIPOM}),
+        .familyMembers = {SPECIES_AIPOM, SPECIES_AMBIPOM},
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -2911,6 +2948,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sAmbipomLevelUpLearnset,
         .teachableLearnset = sAmbipomTeachableLearnset,
+        .familyMembers = {SPECIES_AIPOM, SPECIES_AMBIPOM},
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_AIPOM
@@ -2989,6 +3027,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sSunkernTeachableLearnset,
         .eggMoveLearnset = sSunkernEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_SUN_STONE, SPECIES_SUNFLORA}),
+        .familyMembers = {SPECIES_SUNKERN, SPECIES_SUNFLORA},
     },
 
     [SPECIES_SUNFLORA] =
@@ -3059,6 +3098,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sSunfloraLevelUpLearnset,
         .teachableLearnset = sSunfloraTeachableLearnset,
+        .familyMembers = {SPECIES_SUNKERN, SPECIES_SUNFLORA},
     },
 #endif //P_FAMILY_SUNKERN
 
@@ -3150,6 +3190,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sYanmaTeachableLearnset,
         .eggMoveLearnset = sYanmaEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_MOVE, MOVE_ANCIENT_POWER, SPECIES_YANMEGA}),
+        .familyMembers = {SPECIES_YANMA, SPECIES_YANMEGA},
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -3242,6 +3283,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sYanmegaLevelUpLearnset,
         .teachableLearnset = sYanmegaTeachableLearnset,
+        .familyMembers = {SPECIES_YANMA, SPECIES_YANMEGA},
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_YANMA
@@ -3327,6 +3369,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .eggMoveLearnset = sWooperEggMoveLearnset,
         .formSpeciesIdTable = sWooperFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_QUAGSIRE}),
+        .familyMembers = {SPECIES_WOOPER, SPECIES_QUAGSIRE, SPECIES_WOOPER_PALDEA, SPECIES_CLODSIRE},
     },
 
     [SPECIES_QUAGSIRE] =
@@ -3405,6 +3448,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sQuagsireLevelUpLearnset,
         .teachableLearnset = sQuagsireTeachableLearnset,
+        .familyMembers = {SPECIES_WOOPER, SPECIES_QUAGSIRE, SPECIES_WOOPER_PALDEA, SPECIES_CLODSIRE},
     },
 
 #if P_PALDEAN_FORMS
@@ -3472,6 +3516,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .eggMoveLearnset = sWooperPaldeaEggMoveLearnset,
         .formSpeciesIdTable = sWooperFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_CLODSIRE}),
+        .familyMembers = {SPECIES_WOOPER, SPECIES_QUAGSIRE, SPECIES_WOOPER_PALDEA, SPECIES_CLODSIRE},
     },
 
     [SPECIES_CLODSIRE] =
@@ -3534,6 +3579,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sClodsireLevelUpLearnset,
         .teachableLearnset = sClodsireTeachableLearnset,
+        .familyMembers = {SPECIES_WOOPER, SPECIES_QUAGSIRE, SPECIES_WOOPER_PALDEA, SPECIES_CLODSIRE},
     },
 #endif //P_PALDEAN_FORMS
 #endif //P_FAMILY_WOOPER
@@ -3622,6 +3668,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sMurkrowTeachableLearnset,
         .eggMoveLearnset = sMurkrowEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_DUSK_STONE, SPECIES_HONCHKROW}),
+        .familyMembers = {SPECIES_MURKROW, SPECIES_HONCHKROW},
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -3690,6 +3737,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sHonchkrowLevelUpLearnset,
         .teachableLearnset = sHonchkrowTeachableLearnset,
+        .familyMembers = {SPECIES_MURKROW, SPECIES_HONCHKROW},
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_MURKROW
@@ -3770,6 +3818,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sMisdreavusTeachableLearnset,
         .eggMoveLearnset = sMisdreavusEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM, ITEM_DUSK_STONE, SPECIES_MISMAGIUS}),
+        .familyMembers = {SPECIES_MISDREAVUS, SPECIES_MISMAGIUS},
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -3846,6 +3895,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sMismagiusLevelUpLearnset,
         .teachableLearnset = sMismagiusTeachableLearnset,
+        .familyMembers = {SPECIES_MISDREAVUS, SPECIES_MISMAGIUS},
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_MISDREAVUS
@@ -4015,6 +4065,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sWynautLevelUpLearnset,
         .teachableLearnset = sWynautTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 15, SPECIES_WOBBUFFET}),
+        .familyMembers = {SPECIES_WYNAUT, SPECIES_WOBBUFFET},
     },
 #endif //P_GEN_3_CROSS_EVOS
 
@@ -4102,6 +4153,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .tmIlliterate = TRUE,
         .levelUpLearnset = sWobbuffetLevelUpLearnset,
         .teachableLearnset = sWobbuffetTeachableLearnset,
+        .familyMembers = {SPECIES_WYNAUT, SPECIES_WOBBUFFET},
     },
 #endif //P_FAMILY_WOBBUFFET
 
@@ -4185,6 +4237,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sGirafarigTeachableLearnset,
         .eggMoveLearnset = sGirafarigEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_MOVE, MOVE_TWIN_BEAM, SPECIES_FARIGIRAF}),
+        .familyMembers = {SPECIES_GIRAFARIG, SPECIES_FARIGIRAF},
     },
 
 #if P_GEN_9_CROSS_EVOS
@@ -4248,6 +4301,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sFarigirafLevelUpLearnset,
         .teachableLearnset = sFarigirafTeachableLearnset,
+        .familyMembers = {SPECIES_GIRAFARIG, SPECIES_FARIGIRAF},
     },
 #endif //P_GEN_9_CROSS_EVOS
 #endif //P_FAMILY_GIRAFARIG
@@ -4324,6 +4378,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sPinecoTeachableLearnset,
         .eggMoveLearnset = sPinecoEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 31, SPECIES_FORRETRESS}),
+        .familyMembers = {SPECIES_PINECO, SPECIES_FORRETRESS},
     },
 
     [SPECIES_FORRETRESS] =
@@ -4391,6 +4446,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sForretressLevelUpLearnset,
         .teachableLearnset = sForretressTeachableLearnset,
+        .familyMembers = {SPECIES_PINECO, SPECIES_FORRETRESS},
     },
 #endif //P_FAMILY_PINECO
 
@@ -4470,6 +4526,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .eggMoveLearnset = sDunsparceEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_MOVE_TWO_SEGMENT, MOVE_HYPER_DRILL, SPECIES_DUDUNSPARCE_TWO_SEGMENT},
                                 {EVO_MOVE_THREE_SEGMENT, MOVE_HYPER_DRILL, SPECIES_DUDUNSPARCE_THREE_SEGMENT}),
+        .familyMembers = {SPECIES_DUNSPARCE, SPECIES_DUDUNSPARCE_THREE_SEGMENT},
     },
 
 #if P_GEN_9_CROSS_EVOS
@@ -4597,6 +4654,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sDudunsparceLevelUpLearnset,
         .teachableLearnset = sDudunsparceTeachableLearnset,
         .formSpeciesIdTable = sDudunsparceFormSpeciesIdTable,
+        .familyMembers = {SPECIES_DUNSPARCE, SPECIES_DUDUNSPARCE_THREE_SEGMENT},
     },
 #endif //P_GEN_9_CROSS_EVOS
 #endif //P_FAMILY_DUNSPARCE
@@ -4682,6 +4740,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .eggMoveLearnset = sGligarEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_ITEM_HOLD_NIGHT, ITEM_RAZOR_FANG, SPECIES_GLISCOR},
                                 {EVO_ITEM_NIGHT, ITEM_RAZOR_FANG, SPECIES_GLISCOR}),
+        .familyMembers = {SPECIES_GLIGAR, SPECIES_GLISCOR},
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -4751,6 +4810,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sGliscorLevelUpLearnset,
         .teachableLearnset = sGliscorTeachableLearnset,
+        .familyMembers = {SPECIES_GLIGAR, SPECIES_GLISCOR},
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_GLIGAR
@@ -4825,6 +4885,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sSnubbullTeachableLearnset,
         .eggMoveLearnset = sSnubbullEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 23, SPECIES_GRANBULL}),
+        .familyMembers = {SPECIES_SNUBBULL, SPECIES_GRANBULL},
     },
 
     [SPECIES_GRANBULL] =
@@ -4898,6 +4959,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sGranbullLevelUpLearnset,
         .teachableLearnset = sGranbullTeachableLearnset,
+        .familyMembers = {SPECIES_SNUBBULL, SPECIES_GRANBULL},
     },
 #endif //P_FAMILY_SNUBBULL
 
@@ -4983,6 +5045,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sQwilfishTeachableLearnset,
         .eggMoveLearnset = sQwilfishEggMoveLearnset,
         .formSpeciesIdTable = sQwilfishFormSpeciesIdTable,
+        .familyMembers = {SPECIES_QWILFISH, SPECIES_QWILFISH_HISUI, SPECIES_OVERQWIL},
     },
 
 #if P_HISUIAN_FORMS
@@ -5050,7 +5113,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sQwilfishHisuiLevelUpLearnset,
         .teachableLearnset = sQwilfishHisuiTeachableLearnset,
         .formSpeciesIdTable = sQwilfishFormSpeciesIdTable,
-        .evolutions = EVOLUTION({EVO_MOVE, MOVE_BARB_BARRAGE, SPECIES_OVERQWIL}),
+        .familyMembers = {SPECIES_QWILFISH, SPECIES_QWILFISH_HISUI, SPECIES_OVERQWIL},
     },
 
     [SPECIES_OVERQWIL] =
@@ -5113,6 +5176,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sOverqwilLevelUpLearnset,
         .teachableLearnset = sOverqwilTeachableLearnset,
+        .familyMembers = {SPECIES_QWILFISH, SPECIES_QWILFISH_HISUI, SPECIES_OVERQWIL},
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_QWILFISH
@@ -5190,6 +5254,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sShuckleLevelUpLearnset,
         .teachableLearnset = sShuckleTeachableLearnset,
         .eggMoveLearnset = sShuckleEggMoveLearnset,
+        .familyMembers = {SPECIES_SHUCKLE},
     },
 #endif //P_FAMILY_SHUCKLE
 
@@ -5276,6 +5341,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .eggMoveLearnset = sHeracrossEggMoveLearnset,
         .formSpeciesIdTable = sHeracrossFormSpeciesIdTable,
         .formChangeTable = sHeracrossFormChangeTable,
+        .familyMembers = {SPECIES_HERACROSS},
     },
 
 #if P_MEGA_EVOLUTIONS
@@ -5436,6 +5502,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .formSpeciesIdTable = sSneaselFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_ITEM_HOLD_NIGHT, ITEM_RAZOR_CLAW, SPECIES_WEAVILE},
                                 {EVO_ITEM_NIGHT, ITEM_RAZOR_CLAW, SPECIES_WEAVILE}),
+        .familyMembers = {SPECIES_SNEASEL, SPECIES_WEAVILE, SPECIES_SNEASEL_HISUI, SPECIES_SNEASLER},
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -5517,6 +5584,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sWeavileLevelUpLearnset,
         .teachableLearnset = sWeavileTeachableLearnset,
+        .familyMembers = {SPECIES_SNEASEL, SPECIES_WEAVILE, SPECIES_SNEASEL_HISUI, SPECIES_SNEASLER},
     },
 #endif //P_GEN_4_CROSS_EVOS
 
@@ -5600,6 +5668,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .formSpeciesIdTable = sSneaselFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_ITEM_HOLD_DAY, ITEM_RAZOR_CLAW, SPECIES_SNEASLER},
                                 {EVO_ITEM_DAY, ITEM_RAZOR_CLAW, SPECIES_SNEASLER}),
+        .familyMembers = {SPECIES_SNEASEL, SPECIES_WEAVILE, SPECIES_SNEASEL_HISUI, SPECIES_SNEASLER},
     },
 
     [SPECIES_SNEASLER] =
@@ -5662,6 +5731,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sSneaslerLevelUpLearnset,
         .teachableLearnset = sSneaslerTeachableLearnset,
+        .familyMembers = {SPECIES_SNEASEL, SPECIES_WEAVILE, SPECIES_SNEASEL_HISUI, SPECIES_SNEASLER},
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_SNEASEL
@@ -5738,6 +5808,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sTeddiursaTeachableLearnset,
         .eggMoveLearnset = sTeddiursaEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_URSARING}),
+        .familyMembers = {SPECIES_TEDDIURSA, SPECIES_URSARING, SPECIES_URSALUNA, SPECIES_URSALUNA_BLOODMOON},
     },
 
     [SPECIES_URSARING] =
@@ -5822,6 +5893,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sUrsaringTeachableLearnset,
         .evolutions = EVOLUTION({EVO_ITEM_NIGHT, ITEM_PEAT_BLOCK, SPECIES_URSALUNA},
                                 {EVO_NONE, 0, SPECIES_URSALUNA_BLOODMOON}),
+        .familyMembers = {SPECIES_TEDDIURSA, SPECIES_URSARING, SPECIES_URSALUNA, SPECIES_URSALUNA_BLOODMOON},
     },
 
 #if P_GEN_8_CROSS_EVOS
@@ -5885,6 +5957,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sUrsalunaLevelUpLearnset,
         .teachableLearnset = sUrsalunaTeachableLearnset,
         .formSpeciesIdTable = sUrsalunaFormSpeciesIdTable,
+        .familyMembers = {SPECIES_TEDDIURSA, SPECIES_URSARING, SPECIES_URSALUNA, SPECIES_URSALUNA_BLOODMOON},
     },
 
     [SPECIES_URSALUNA_BLOODMOON] =
@@ -5939,6 +6012,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sUrsalunaBloodmoonLevelUpLearnset,
         .teachableLearnset = sUrsalunaBloodmoonTeachableLearnset,
         .formSpeciesIdTable = sUrsalunaFormSpeciesIdTable,
+        .familyMembers = {SPECIES_TEDDIURSA, SPECIES_URSARING, SPECIES_URSALUNA, SPECIES_URSALUNA_BLOODMOON},
     },
 #endif //P_GEN_8_CROSS_EVOS
 #endif //P_FAMILY_TEDDIURSA
@@ -6012,6 +6086,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sSlugmaTeachableLearnset,
         .eggMoveLearnset = sSlugmaEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_MAGCARGO}),
+        .familyMembers = {SPECIES_SLUGMA, SPECIES_MAGCARGO},
     },
 
     [SPECIES_MAGCARGO] =
@@ -6087,6 +6162,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sMagcargoLevelUpLearnset,
         .teachableLearnset = sMagcargoTeachableLearnset,
+        .familyMembers = {SPECIES_SLUGMA, SPECIES_MAGCARGO},
     },
 #endif //P_FAMILY_SLUGMA
 
@@ -6162,6 +6238,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sSwinubTeachableLearnset,
         .eggMoveLearnset = sSwinubEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 33, SPECIES_PILOSWINE}),
+        .familyMembers = {SPECIES_SWINUB, SPECIES_PILOSWINE, SPECIES_MAMOSWINE},
     },
 
     [SPECIES_PILOSWINE] =
@@ -6248,6 +6325,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sPiloswineLevelUpLearnset,
         .teachableLearnset = sPiloswineTeachableLearnset,
         .evolutions = EVOLUTION({EVO_MOVE, MOVE_ANCIENT_POWER, SPECIES_MAMOSWINE}),
+        .familyMembers = {SPECIES_SWINUB, SPECIES_PILOSWINE, SPECIES_MAMOSWINE},
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -6332,6 +6410,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sMamoswineLevelUpLearnset,
         .teachableLearnset = sMamoswineTeachableLearnset,
+        .familyMembers = {SPECIES_SWINUB, SPECIES_PILOSWINE, SPECIES_MAMOSWINE},
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_SWINUB
@@ -6417,6 +6496,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sCorsolaTeachableLearnset,
         .eggMoveLearnset = sCorsolaEggMoveLearnset,
         .formSpeciesIdTable = sCorsolaFormSpeciesIdTable,
+        .familyMembers = {SPECIES_CORSOLA, SPECIES_CORSOLA_GALAR, SPECIES_CURSOLA},
     },
 
 #if P_GALARIAN_FORMS
@@ -6484,6 +6564,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .eggMoveLearnset = sCorsolaGalarEggMoveLearnset,
         .formSpeciesIdTable = sCorsolaFormSpeciesIdTable,
         .evolutions = EVOLUTION({EVO_LEVEL, 38, SPECIES_CURSOLA}),
+        .familyMembers = {SPECIES_CORSOLA, SPECIES_CORSOLA_GALAR, SPECIES_CURSOLA},
     },
 
     [SPECIES_CURSOLA] =
@@ -6546,6 +6627,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sCursolaLevelUpLearnset,
         .teachableLearnset = sCursolaTeachableLearnset,
+        .familyMembers = {SPECIES_CORSOLA, SPECIES_CORSOLA_GALAR, SPECIES_CURSOLA},
     },
 #endif //P_GALARIAN_FORMS
 #endif //P_FAMILY_CORSOLA
@@ -6621,6 +6703,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sRemoraidTeachableLearnset,
         .eggMoveLearnset = sRemoraidEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_OCTILLERY}),
+        .familyMembers = {SPECIES_REMORAID, SPECIES_OCTILLERY},
     },
 
     [SPECIES_OCTILLERY] =
@@ -6707,6 +6790,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sOctilleryLevelUpLearnset,
         .teachableLearnset = sOctilleryTeachableLearnset,
+        .familyMembers = {SPECIES_REMORAID, SPECIES_OCTILLERY},
     },
 #endif //P_FAMILY_REMORAID
 
@@ -6775,6 +6859,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sDelibirdLevelUpLearnset,
         .teachableLearnset = sDelibirdTeachableLearnset,
         .eggMoveLearnset = sDelibirdEggMoveLearnset,
+        .familyMembers = {SPECIES_DELIBIRD},
     },
 #endif //P_FAMILY_DELIBIRD
 
@@ -6847,6 +6932,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sMantykeTeachableLearnset,
         .eggMoveLearnset = sMantykeEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_SPECIFIC_MON_IN_PARTY, SPECIES_REMORAID, SPECIES_MANTINE}),
+        .familyMembers = {SPECIES_MANTYKE, SPECIES_MANTINE},
     },
 #endif //P_GEN_4_CROSS_EVOS
 
@@ -6923,6 +7009,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sMantineLevelUpLearnset,
         .teachableLearnset = sMantineTeachableLearnset,
         .eggMoveLearnset = sMantineEggMoveLearnset,
+        .familyMembers = {SPECIES_MANTYKE, SPECIES_MANTINE},
     },
 #endif //P_FAMILY_MANTINE
 
@@ -6992,6 +7079,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sSkarmoryLevelUpLearnset,
         .teachableLearnset = sSkarmoryTeachableLearnset,
         .eggMoveLearnset = sSkarmoryEggMoveLearnset,
+        .familyMembers = {SPECIES_SKARMORY},
     },
 #endif //P_FAMILY_SKARMORY
 
@@ -7061,6 +7149,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sHoundourTeachableLearnset,
         .eggMoveLearnset = sHoundourEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 24, SPECIES_HOUNDOOM}),
+        .familyMembers = {SPECIES_HOUNDOUR, SPECIES_HOUNDOOM},
     },
 
     [SPECIES_HOUNDOOM] =
@@ -7141,6 +7230,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sHoundoomTeachableLearnset,
         .formSpeciesIdTable = sHoundoomFormSpeciesIdTable,
         .formChangeTable = sHoundoomFormChangeTable,
+        .familyMembers = {SPECIES_HOUNDOUR, SPECIES_HOUNDOOM},
     },
 
 #if P_MEGA_EVOLUTIONS
@@ -7283,6 +7373,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sPhanpyTeachableLearnset,
         .eggMoveLearnset = sPhanpyEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 25, SPECIES_DONPHAN}),
+        .familyMembers = {SPECIES_PHANPY, SPECIES_DONPHAN},
     },
 
     [SPECIES_DONPHAN] =
@@ -7363,6 +7454,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sDonphanLevelUpLearnset,
         .teachableLearnset = sDonphanTeachableLearnset,
+        .familyMembers = {SPECIES_PHANPY, SPECIES_DONPHAN},
     },
 #endif //P_FAMILY_PHANPY
 
@@ -7436,6 +7528,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sStantlerTeachableLearnset,
         .eggMoveLearnset = sStantlerEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_USE_MOVE_TWENTY_TIMES, MOVE_PSYSHIELD_BASH, SPECIES_WYRDEER}),
+        .familyMembers = {SPECIES_STANTLER, SPECIES_WYRDEER},
     },
 
 #if P_GEN_8_CROSS_EVOS
@@ -7500,6 +7593,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         )
         .levelUpLearnset = sWyrdeerLevelUpLearnset,
         .teachableLearnset = sWyrdeerTeachableLearnset,
+        .familyMembers = {SPECIES_STANTLER, SPECIES_WYRDEER},
     },
 #endif //P_GEN_8_CROSS_EVOS
 #endif //P_FAMILY_STANTLER
@@ -7649,6 +7743,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sMiltankLevelUpLearnset,
         .teachableLearnset = sMiltankTeachableLearnset,
         .eggMoveLearnset = sMiltankEggMoveLearnset,
+        .familyMembers = {SPECIES_MILTANK},
     },
 #endif //P_FAMILY_MILTANK
 
@@ -7730,6 +7825,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sRaikouLevelUpLearnset,
         .teachableLearnset = sRaikouTeachableLearnset,
+        .familyMembers = {SPECIES_RAIKOU},
     },
 #endif //P_FAMILY_RAIKOU
 
@@ -7810,6 +7906,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sEnteiLevelUpLearnset,
         .teachableLearnset = sEnteiTeachableLearnset,
+        .familyMembers = {SPECIES_ENTEI},
     },
 #endif //P_FAMILY_ENTEI
 
@@ -7890,6 +7987,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sSuicuneLevelUpLearnset,
         .teachableLearnset = sSuicuneTeachableLearnset,
+        .familyMembers = {SPECIES_SUICUNE},
     },
 #endif //P_FAMILY_SUICUNE
 
@@ -7961,6 +8059,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sLarvitarTeachableLearnset,
         .eggMoveLearnset = sLarvitarEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_PUPITAR}),
+        .familyMembers = {SPECIES_LARVITAR, SPECIES_PUPITAR, SPECIES_TYRANITAR},
     },
 
     [SPECIES_PUPITAR] =
@@ -8027,6 +8126,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .levelUpLearnset = sPupitarLevelUpLearnset,
         .teachableLearnset = sPupitarTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 55, SPECIES_TYRANITAR}),
+        .familyMembers = {SPECIES_LARVITAR, SPECIES_PUPITAR, SPECIES_TYRANITAR},
     },
 
     [SPECIES_TYRANITAR] =
@@ -8102,6 +8202,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sTyranitarTeachableLearnset,
         .formSpeciesIdTable = sTyranitarFormSpeciesIdTable,
         .formChangeTable = sTyranitarFormChangeTable,
+        .familyMembers = {SPECIES_LARVITAR, SPECIES_PUPITAR, SPECIES_TYRANITAR},
     },
 
 #if P_MEGA_EVOLUTIONS
@@ -8259,6 +8360,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sLugiaLevelUpLearnset,
         .teachableLearnset = sLugiaTeachableLearnset,
+        .familyMembers = {SPECIES_LUGIA},
     },
 #endif //P_FAMILY_LUGIA
 
@@ -8338,6 +8440,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sHoOhLevelUpLearnset,
         .teachableLearnset = sHoOhTeachableLearnset,
+        .familyMembers = {SPECIES_HO_OH},
     },
 #endif //P_FAMILY_HO_OH
 
@@ -8419,6 +8522,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
         .levelUpLearnset = sCelebiLevelUpLearnset,
         .teachableLearnset = sCelebiTeachableLearnset,
+        .familyMembers = {SPECIES_CELEBI},
     },
 #endif //P_FAMILY_CELEBI
 

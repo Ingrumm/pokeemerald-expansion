@@ -13,6 +13,7 @@ void TryPutTreasureInvestigatorsOnAir(void);
 void TryPutLotteryWinnerReportOnAir(void);
 void TryPutTrainerFanClubOnAir(void);
 void ChangePokemonNickname(void);
+void ChangeBoxPokemonNickname(void);
 void IncrementDailyPlantedBerries(void);
 void IncrementDailyPickedBerries(void);
 void IncrementDailyBattlePoints(u16 delta);
