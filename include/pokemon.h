@@ -378,7 +378,7 @@ struct SpeciesInfo /*0xC4*/
     u8 eggGroups[2];
     u16 abilities[NUM_ABILITY_SLOTS]; // 3 abilities, no longer u8 because we have over 255 abilities now.
     u8 safariZoneFleeRate;
-    u16 familyMembers[9];
+    u16 familyMembers[10];
     u8 availableInSplit[19];
 
     // Pokédex data

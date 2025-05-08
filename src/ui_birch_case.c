@@ -579,31 +579,65 @@ static void BirchCase_GiveMon() // Function that calls the GiveMon function pull
 }
 
 
+bool8 isDupe(int speciesId)
+{
+    int familySize = sizeof(gSpeciesInfo[speciesId].familyMembers)/sizeof(gSpeciesInfo[speciesId].familyMembers[0]);
+    for(int i=0; i<familySize; i++)
+    {
+        if(gSpeciesInfo[speciesId].familyMembers[i] == SPECIES_NONE) {
+            continue;
+        }
+        else
+        {
+            if(GetSetPokedexFlag(SpeciesToNationalPokedexNum(gSpeciesInfo[speciesId].familyMembers[i]), FLAG_GET_CAUGHT))
+            {
+                DebugPrintf("dupeId: %d, dupeName: %S, familyDupeName: %S, familySize: %d", speciesId, gSpeciesInfo[speciesId].speciesName, gSpeciesInfo[gSpeciesInfo[speciesId].familyMembers[i]].speciesName, familySize);
+                return TRUE;
+            }
+        }
+
+    }
+    return FALSE;
+}
+
+
 static void GenerateOptions(int speciesList[], int size)
 {
     int potentialSpecies = 0;
     int speciesId = 0;
+    int blowup;
 
     for(int i=4; i<=6; i++)
     {
+        blowup = 0;
         do
         {
+            if(blowup>=10)
+            {
+                break;
+            }
             potentialSpecies = speciesList[Random() % size];
-            if(potentialSpecies == sStarterChoices[4].species)
+            if(potentialSpecies <= SPECIES_NONE || potentialSpecies >= NUM_SPECIES) {
+                DebugPrintf("THIS SHOULD NOT HAPPEN");
+                continue;
+            }
+            if(potentialSpecies == sStarterChoices[4].species || potentialSpecies == sStarterChoices[5].species)
             {
-                //DebugPrintf("4th slot duplicate %S, CHOICES: %S %S %S. Rerolling 4th", gSpeciesInfo[potentialSpecies].speciesName, gSpeciesInfo[sStarterChoices[4].species].speciesName, gSpeciesInfo[sStarterChoices[5].species].speciesName, gSpeciesInfo[sStarterChoices[6].species].speciesName);
+                blowup++;
+                DebugPrintf("Failed to put %S in the %d slot. CHOICES: %S %S %S. Rerolling", gSpeciesInfo[potentialSpecies].speciesName, i-3, gSpeciesInfo[sStarterChoices[4].species].speciesName, gSpeciesInfo[sStarterChoices[5].species].speciesName, gSpeciesInfo[sStarterChoices[6].species].speciesName);
                 speciesId = 0;
                 continue;
             }
-            if(potentialSpecies == sStarterChoices[5].species)
-            {
-                //DebugPrintf("5th slot duplicate %S, CHOICES: %S %S %S. Rerolling 5th", gSpeciesInfo[potentialSpecies].speciesName, gSpeciesInfo[sStarterChoices[4].species].speciesName, gSpeciesInfo[sStarterChoices[5].species].speciesName, gSpeciesInfo[sStarterChoices[6].species].speciesName);
-                speciesId = 0;
-                continue;
-            }
-            if(potentialSpecies == sStarterChoices[6].species)
-            {
-                //DebugPrintf("6th slot duplicate %S, CHOICES: %S %S %S. Rerolling 6th", gSpeciesInfo[potentialSpecies].speciesName, gSpeciesInfo[sStarterChoices[4].species].speciesName, gSpeciesInfo[sStarterChoices[5].species].speciesName, gSpeciesInfo[sStarterChoices[6].species].speciesName);
+            // if(potentialSpecies == sStarterChoices[6].species)
+            // {
+            //     blowup++;
+            //     DebugPrintf("6th slot duplicate %S, CHOICES: %S %S %S. Rerolling 6th", gSpeciesInfo[potentialSpecies].speciesName, gSpeciesInfo[sStarterChoices[4].species].speciesName, gSpeciesInfo[sStarterChoices[5].species].speciesName, gSpeciesInfo[sStarterChoices[6].species].speciesName);
+            //     speciesId = 0;
+            //     continue;
+            // }
+            if(isDupe(potentialSpecies)) {
+                blowup++;
+                DebugPrintf("Pokemon %S in the %d slot is a dupe. CHOICES: %S %S %S. Rerolling", gSpeciesInfo[potentialSpecies].speciesName, i-3, gSpeciesInfo[sStarterChoices[4].species].speciesName, gSpeciesInfo[sStarterChoices[5].species].speciesName, gSpeciesInfo[sStarterChoices[6].species].speciesName);
                 speciesId = 0;
                 continue;
             }
@@ -632,6 +666,7 @@ static void GenerateOptions(int speciesList[], int size)
         sHiddenInfo[i].speedRevealed = 0;
         sHiddenInfo[i].abilityRevealed = 0;
         sHiddenInfo[i].natureRevealed = 0;
+        DebugPrintf("1. %S, 2. %S, 3. %S", gSpeciesInfo[sStarterChoices[4].species].speciesName, gSpeciesInfo[sStarterChoices[5].species].speciesName, gSpeciesInfo[sStarterChoices[6].species].speciesName);
     }
     gSaveBlock3Ptr->revealsRemaining = 3;
 }

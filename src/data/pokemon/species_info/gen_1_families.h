@@ -17554,6 +17554,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
                                 {EVO_LEVEL_MOD_8_6, 6, SPECIES_GLACEON},
                                 {EVO_LEVEL_MOD_8_7, 6, SPECIES_SYLVEON}),
         .familyMembers = {SPECIES_EEVEE, SPECIES_VAPOREON, SPECIES_JOLTEON, SPECIES_ESPEON, SPECIES_UMBREON, SPECIES_FLAREON, SPECIES_LEAFEON, SPECIES_GLACEON, SPECIES_SYLVEON},
+        
     },
 
 #if P_GIGANTAMAX_FORMS

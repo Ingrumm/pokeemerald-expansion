@@ -4508,7 +4508,6 @@ s8 GetSetPokedexFlag(u16 nationalDexNo, u8 caseID)
         gSaveBlock1Ptr->dexCaught[index] |= mask;
         break;
     }
-
     return retVal;
 }
 
