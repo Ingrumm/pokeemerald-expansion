@@ -131,7 +131,7 @@
 
 // Candy
 #define ITEM_RARE_CANDY 102
-#define ITEM_EXP_CANDY_XS 103
+#define ITEM_CAP_CANDY 103
 #define ITEM_EXP_CANDY_S 104
 #define ITEM_EXP_CANDY_M 105
 #define ITEM_EXP_CANDY_L 106

@@ -573,6 +573,7 @@ static void CreateStartMenuTask(TaskFunc followupFunc)
 
 static bool8 FieldCB_ReturnToFieldStartMenu(void)
 {
+    DebugPrintf("FieldCB_ReturnToFieldStartMenu");
     if (InitStartMenuStep() == FALSE)
     {
         return FALSE;
@@ -584,6 +585,7 @@ static bool8 FieldCB_ReturnToFieldStartMenu(void)
 
 void ShowReturnToFieldStartMenu(void)
 {
+    DebugPrintf("ShowReturnToFieldStartMenu");
     sInitStartMenuData[0] = 0;
     sInitStartMenuData[1] = 0;
     gFieldCallback2 = FieldCB_ReturnToFieldStartMenu;

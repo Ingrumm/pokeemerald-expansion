@@ -46,6 +46,7 @@
 #include "constants/party_menu.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "field_weather.h"
 
 
 enum
@@ -472,6 +473,7 @@ struct PokedexView
     s16 menuY;     //Menu Y position (inverted because we use REG_BG0VOFS for this)
     u8 unkArr2[8]; // Cleared, never read
     u8 unkArr3[8]; // Cleared, never read
+    bool8 accessedFromBriefcase;
 };
 
 static void ResetPokedexView(struct PokedexView *pokedexView);
@@ -2091,6 +2093,125 @@ void CB2_OpenPokedexPlusHGSS(void)
     }
 }
 
+void CB2_OpenPokedexInfoAtMon(u16 dexNum)
+{
+    if (!POKEDEX_PLUS_HGSS) return; // prevents the compiler from emitting static .rodata
+                                    // if the feature is disabled
+    switch (gMain.state)
+    {
+    case 0:
+    default:
+        SetVBlankCallback(NULL);
+        ResetOtherVideoRegisters(0);
+        DmaFillLarge16(3, 0, (u8 *)VRAM, VRAM_SIZE, 0x1000);
+        DmaClear32(3, OAM, OAM_SIZE);
+        DmaClear16(3, PLTT, PLTT_SIZE);
+        gMain.state = 1;
+        break;
+    case 1:
+        ScanlineEffect_Stop();
+        ResetTasks();
+        ResetSpriteData();
+        ResetPaletteFade();
+        FreeAllSpritePalettes();
+        gReservedSpritePaletteCount = 8;
+        ResetAllPicSprites();
+        gMain.state++;
+        break;
+    case 2:
+        sPokedexView = AllocZeroed(sizeof(struct PokedexView));
+        ResetPokedexView(sPokedexView);
+        CreateTask(Task_OpenPokedexMainPage, 0);
+        sPokedexView->dexMode = gSaveBlock2Ptr->pokedex.mode;
+        if (!IsNationalPokedexEnabled())
+            sPokedexView->dexMode = DEX_MODE_HOENN;
+        sPokedexView->dexOrder = gSaveBlock2Ptr->pokedex.order;
+        sPokedexView->selectedPokemon = dexNum-1;
+        sPokedexView->pokeBallRotation = sPokeBallRotation;
+        sPokedexView->selectedScreen = AREA_SCREEN;
+        if (!IsNationalPokedexEnabled())
+        {
+            sPokedexView->seenCount = GetHoennPokedexCount(FLAG_GET_SEEN);
+            sPokedexView->ownCount = GetHoennPokedexCount(FLAG_GET_CAUGHT);
+        }
+        else
+        {
+            sPokedexView->seenCount = GetNationalPokedexCount(FLAG_GET_SEEN);
+            sPokedexView->ownCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+        }
+        sPokedexView->initialVOffset = 8;
+        gMain.state++;
+        break;
+    case 3:
+        EnableInterrupts(1);
+        SetVBlankCallback(VBlankCB_Pokedex);
+        SetMainCallback2(CB2_Pokedex);
+        CreatePokedexList(sPokedexView->dexMode, sPokedexView->dexOrder);
+        m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0x80);
+        break;
+    }
+}
+
+void CB2_OpenPokedexInfoAtBriefcaseMon(u16 dexNum)
+{
+    if (!POKEDEX_PLUS_HGSS) return; // prevents the compiler from emitting static .rodata
+                                    // if the feature is disabled
+    switch (gMain.state)
+    {
+    case 0:
+    default:
+        SetVBlankCallback(NULL);
+        ResetOtherVideoRegisters(0);
+        DmaFillLarge16(3, 0, (u8 *)VRAM, VRAM_SIZE, 0x1000);
+        DmaClear32(3, OAM, OAM_SIZE);
+        DmaClear16(3, PLTT, PLTT_SIZE);
+        gMain.state = 1;
+        break;
+    case 1:
+        ScanlineEffect_Stop();
+        ResetTasks();
+        ResetSpriteData();
+        ResetPaletteFade();
+        FreeAllSpritePalettes();
+        gReservedSpritePaletteCount = 8;
+        ResetAllPicSprites();
+        gMain.state++;
+        break;
+    case 2:
+        sPokedexView = AllocZeroed(sizeof(struct PokedexView));
+        ResetPokedexView(sPokedexView);
+        CreateTask(Task_OpenPokedexMainPage, 0);
+        sPokedexView->dexMode = gSaveBlock2Ptr->pokedex.mode;
+        if (!IsNationalPokedexEnabled())
+            sPokedexView->dexMode = DEX_MODE_HOENN;
+        sPokedexView->dexOrder = gSaveBlock2Ptr->pokedex.order;
+        sPokedexView->selectedPokemon = dexNum-1;
+        sPokedexView->pokeBallRotation = sPokeBallRotation;
+        sPokedexView->selectedScreen = AREA_SCREEN;
+        sPokedexView->accessedFromBriefcase = TRUE;
+        if (!IsNationalPokedexEnabled())
+        {
+            sPokedexView->seenCount = GetHoennPokedexCount(FLAG_GET_SEEN);
+            sPokedexView->ownCount = GetHoennPokedexCount(FLAG_GET_CAUGHT);
+        }
+        else
+        {
+            sPokedexView->seenCount = GetNationalPokedexCount(FLAG_GET_SEEN);
+            sPokedexView->ownCount = GetNationalPokedexCount(FLAG_GET_CAUGHT);
+        }
+        sPokedexView->initialVOffset = 8;
+        gMain.state++;
+        break;
+    case 3:
+        EnableInterrupts(1);
+        SetVBlankCallback(VBlankCB_Pokedex);
+        SetMainCallback2(CB2_Pokedex);
+        CreatePokedexList(sPokedexView->dexMode, sPokedexView->dexOrder);
+        m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0x80);
+        break;
+    }
+}
+
 static void ResetPokedexView(struct PokedexView *pokedexView)
 {
     u16 i;
@@ -2334,8 +2455,28 @@ static void Task_WaitForExitInfoScreen(u8 taskId)
 }
 
 
+static void FreeInfoScreenWindowAndBgBuffers(void)
+{
+    void *tilemapBuffer;
+
+    FreeAllWindowBuffers();
+    tilemapBuffer = GetBgTilemapBuffer(0);
+    if (tilemapBuffer)
+        Free(tilemapBuffer);
+    tilemapBuffer = GetBgTilemapBuffer(1);
+    if (tilemapBuffer)
+        Free(tilemapBuffer);
+    tilemapBuffer = GetBgTilemapBuffer(2);
+    if (tilemapBuffer)
+        Free(tilemapBuffer);
+    tilemapBuffer = GetBgTilemapBuffer(3);
+    if (tilemapBuffer)
+        Free(tilemapBuffer);
+}
+
 static void Task_ClosePokedex(u8 taskId)
 {
+    DebugPrintf("Task_ClosePokedex");
     if (!gPaletteFade.active)
     {
         gSaveBlock2Ptr->pokedex.mode = sPokedexView->dexMode;
@@ -2345,7 +2486,14 @@ static void Task_ClosePokedex(u8 taskId)
         ClearMonSprites();
         FreeWindowAndBgBuffers();
         DestroyTask(taskId);
-        SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
+        if(sPokedexView->accessedFromBriefcase) 
+        {
+            SetMainCallback2(CB2_ReturnToField);
+        }
+        else
+        {
+            SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
+        }
         m4aMPlayVolumeControl(&gMPlayInfo_BGM, TRACKS_ALL, 0x100);
         Free(sPokedexView);
     }
@@ -3878,24 +4026,6 @@ static void Task_LoadInfoScreen(u8 taskId)
     }
 }
 
-static void FreeInfoScreenWindowAndBgBuffers(void)
-{
-    void *tilemapBuffer;
-
-    FreeAllWindowBuffers();
-    tilemapBuffer = GetBgTilemapBuffer(0);
-    if (tilemapBuffer)
-        Free(tilemapBuffer);
-    tilemapBuffer = GetBgTilemapBuffer(1);
-    if (tilemapBuffer)
-        Free(tilemapBuffer);
-    tilemapBuffer = GetBgTilemapBuffer(2);
-    if (tilemapBuffer)
-        Free(tilemapBuffer);
-    tilemapBuffer = GetBgTilemapBuffer(3);
-    if (tilemapBuffer)
-        Free(tilemapBuffer);
-}
 
 static void Task_HandleInfoScreenInput(u8 taskId)
 {

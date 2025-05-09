@@ -358,7 +358,7 @@ static void CB2_MoveRelearnerMain(void);
 static void Task_WaitForFadeOut(u8 taskId);
 static void CB2_InitLearnMoveReturnFromSelectMove(void);
 static void InitMoveRelearnerBackgroundLayers(void);
-static void AddScrollArrows(void);
+//static void AddScrollArrows(void);
 static void HandleInput(u8);
 static void ShowTeachMoveText(u8);
 static s32 GetCurrentSelectedMove(void);
@@ -503,18 +503,18 @@ static void DoMoveRelearnerMain(void)
 
         HideHeartSpritesAndShowTeachMoveText(FALSE);
         sMoveRelearnerStruct->state++;
-        AddScrollArrows();
+        //AddScrollArrows();
         break;
     case MENU_STATE_IDLE_BATTLE_MODE:
         HandleInput(FALSE);
         break;
     case MENU_STATE_SETUP_CONTEST_MODE:
-        ShowTeachMoveText(FALSE);
-        sMoveRelearnerStruct->state++;
-        AddScrollArrows();
+        //ShowTeachMoveText(FALSE);
+        //sMoveRelearnerStruct->state++;
+        //AddScrollArrows();
         break;
     case MENU_STATE_IDLE_CONTEST_MODE:
-        HandleInput(TRUE);
+        HandleInput(FALSE);
         break;
     case MENU_STATE_PRINT_TEACH_MOVE_PROMPT:
         if (!MoveRelearnerRunTextPrinters())
@@ -832,25 +832,25 @@ static void HandleInput(bool8 showContest)
         if (!(JOY_NEW(DPAD_LEFT | DPAD_RIGHT)) && !GetLRKeysPressed())
             break;
 
-        PlaySE(SE_SELECT);
+        // PlaySE(SE_SELECT);
 
-        if (showContest == FALSE)
-        {
-            PutWindowTilemap(RELEARNERWIN_DESC_CONTEST);
-            sMoveRelearnerStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
-            sMoveRelearnerMenuSate.showContestInfo = TRUE;
-        }
-        else
-        {
-            PutWindowTilemap(RELEARNERWIN_DESC_BATTLE);
-            sMoveRelearnerStruct->state = MENU_STATE_SETUP_BATTLE_MODE;
-            sMoveRelearnerMenuSate.showContestInfo = FALSE;
-        }
+        // // if (showContest == FALSE)
+        // // {
+        // //     PutWindowTilemap(RELEARNERWIN_DESC_CONTEST);
+        // //     sMoveRelearnerStruct->state = MENU_STATE_SETUP_CONTEST_MODE;
+        // //     sMoveRelearnerMenuSate.showContestInfo = TRUE;
+        // // }
+        // // else
+        // // {
+        // PutWindowTilemap(RELEARNERWIN_DESC_BATTLE);
+        // sMoveRelearnerStruct->state = MENU_STATE_SETUP_BATTLE_MODE;
+        // sMoveRelearnerMenuSate.showContestInfo = FALSE;
+        // // }
 
-        ScheduleBgCopyTilemapToVram(1);
-        MoveRelearnerShowHideHearts(GetCurrentSelectedMove());
-        if (B_SHOW_CATEGORY_ICON == TRUE)
-            MoveRelearnerShowHideCategoryIcon(GetCurrentSelectedMove());
+        // ScheduleBgCopyTilemapToVram(1);
+        // MoveRelearnerShowHideHearts(GetCurrentSelectedMove());
+        // if (B_SHOW_CATEGORY_ICON == TRUE)
+        //     MoveRelearnerShowHideCategoryIcon(GetCurrentSelectedMove());
 
         break;
     case LIST_CANCEL:
@@ -898,7 +898,7 @@ static void CreateUISprites(void)
 
     sMoveRelearnerStruct->moveDisplayArrowTask = TASK_NONE;
     sMoveRelearnerStruct->moveListScrollArrowTask = TASK_NONE;
-    AddScrollArrows();
+    //AddScrollArrows();
 
     sMoveRelearnerStruct->categoryIconSpriteId = 0xFF;
     LoadCompressedSpriteSheet(&gSpriteSheet_CategoryIcons);
@@ -920,18 +920,18 @@ static void CreateUISprites(void)
         gSprites[sMoveRelearnerStruct->heartSpriteIds[i]].invisible = TRUE;
 }
 
-static void AddScrollArrows(void)
-{
-    if (sMoveRelearnerStruct->moveDisplayArrowTask == TASK_NONE)
-        sMoveRelearnerStruct->moveDisplayArrowTask = AddScrollIndicatorArrowPair(&sDisplayModeArrowsTemplate, &sMoveRelearnerStruct->scrollOffset);
+// static void AddScrollArrows(void)
+// {
+//     if (sMoveRelearnerStruct->moveDisplayArrowTask == TASK_NONE)
+//         sMoveRelearnerStruct->moveDisplayArrowTask = AddScrollIndicatorArrowPair(&sDisplayModeArrowsTemplate, &sMoveRelearnerStruct->scrollOffset);
 
-    if (sMoveRelearnerStruct->moveListScrollArrowTask == TASK_NONE)
-    {
-        gTempScrollArrowTemplate = sMoveListScrollArrowsTemplate;
-        gTempScrollArrowTemplate.fullyDownThreshold = sMoveRelearnerStruct->numMenuChoices - sMoveRelearnerStruct->numToShowAtOnce;
-        sMoveRelearnerStruct->moveListScrollArrowTask = AddScrollIndicatorArrowPair(&gTempScrollArrowTemplate, &sMoveRelearnerMenuSate.listOffset);
-    }
-}
+//     if (sMoveRelearnerStruct->moveListScrollArrowTask == TASK_NONE)
+//     {
+//         gTempScrollArrowTemplate = sMoveListScrollArrowsTemplate;
+//         gTempScrollArrowTemplate.fullyDownThreshold = sMoveRelearnerStruct->numMenuChoices - sMoveRelearnerStruct->numToShowAtOnce;
+//         sMoveRelearnerStruct->moveListScrollArrowTask = AddScrollIndicatorArrowPair(&gTempScrollArrowTemplate, &sMoveRelearnerMenuSate.listOffset);
+//     }
+// }
 
 static void RemoveScrollArrows(void)
 {

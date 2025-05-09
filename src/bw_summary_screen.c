@@ -65,7 +65,6 @@ enum BWSkillsPageState
 {
     SKILL_STATE_STATS,
     SKILL_STATE_IVS,
-    SKILL_STATE_EVS,
 };
 
 #define PSS_BUFFER_SIZE 0x400
@@ -2372,14 +2371,14 @@ static void ChangeSummaryState(s16 *data, u8 taskId)
         tSkillsState = SKILL_STATE_IVS;
         break;
     case SKILL_STATE_IVS:
-        tSkillsState = SKILL_STATE_EVS;
+        tSkillsState = SKILL_STATE_STATS;
         break;
-    case SKILL_STATE_EVS:
-        if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
-            tSkillsState = SKILL_STATE_IVS;
-        else
-            tSkillsState = SKILL_STATE_STATS;
-        break;
+    // case SKILL_STATE_EVS:
+    //     if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
+    //         tSkillsState = SKILL_STATE_IVS;
+    //     else
+    //         tSkillsState = SKILL_STATE_STATS;
+    //     break;
     }
 
     gTasks[taskId].func = Task_HandleInput;
@@ -2396,20 +2395,20 @@ static void DrawNextSkillsButtonPrompt(u8 mode)
             break;
         case SKILL_STATE_IVS:
             ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS);
-            PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
+            PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_STATS);
             break;
-        case SKILL_STATE_EVS:
-            if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
-            {
-                ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
-                PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS);
-            }
-            else
-            {
-                ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
-                PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_STATS);
-            }
-            break;
+        // case SKILL_STATE_EVS:
+        //     if (BW_SUMMARY_IV_EV_DISPLAY == BW_IV_EV_GRADED)
+        //     {
+        //         ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
+        //         PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_IVS);
+        //     }
+        //     else
+        //     {
+        //         ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_EVS);
+        //         PutWindowTilemap(PSS_LABEL_WINDOW_PROMPT_STATS);
+        //     }
+        //     break;
     }
     ScheduleBgCopyTilemapToVram(0);
 }
@@ -3683,12 +3682,12 @@ static void PrintPageNamesAndStats(void)
             PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_IVS, FALSE, iconXPos);
             PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_IVS, sText_ViewIVs_Graded, stringXPos, 1, 0, 1);
 
-            stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, sText_ViewEVs_Graded, skillsLabelWidth);
+            stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, sText_ViewStats, skillsLabelWidth);
             iconXPos = stringXPos - 16;
             if (iconXPos < 0)
                 iconXPos = 0;
-            PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_EVS, FALSE, iconXPos);
-            PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_EVS, sText_ViewEVs_Graded, stringXPos, 1, 0, 1);
+            PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_STATS, FALSE, iconXPos);
+            PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_STATS, sText_ViewStats, stringXPos, 1, 0, 1);
         }
         else // precise display
         {
@@ -3699,12 +3698,12 @@ static void PrintPageNamesAndStats(void)
             PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_IVS, FALSE, iconXPos);
             PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_IVS, sText_ViewIVs, stringXPos, 1, 0, 1);
 
-            stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, sText_ViewEVs, skillsLabelWidth);
+            stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, sText_ViewStats, skillsLabelWidth);
             iconXPos = stringXPos - 16;
             if (iconXPos < 0)
                 iconXPos = 0;
-            PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_EVS, FALSE, iconXPos);
-            PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_EVS, sText_ViewEVs, stringXPos, 1, 0, 1);
+            PrintAOrBButtonIcon(PSS_LABEL_WINDOW_PROMPT_STATS, FALSE, iconXPos);
+            PrintTextOnWindow(PSS_LABEL_WINDOW_PROMPT_STATS, sText_ViewStats, stringXPos, 1, 0, 1);
         }
 
         stringXPos = GetStringRightAlignXOffset(FONT_NORMAL, sText_ViewStats, skillsLabelWidth);
@@ -4338,14 +4337,14 @@ static void BufferAndPrintStats_HandleState(u8 mode)
         spD = sMonSummaryScreen->summary.ivSpdef;
         spe = sMonSummaryScreen->summary.ivSpeed;
         break;
-    case SKILL_STATE_EVS:
-        hp = sMonSummaryScreen->summary.evHp;
-        atk = sMonSummaryScreen->summary.evAtk;
-        def = sMonSummaryScreen->summary.evDef;
-        spA = sMonSummaryScreen->summary.evSpatk;
-        spD = sMonSummaryScreen->summary.evSpdef;
-        spe = sMonSummaryScreen->summary.evSpeed;
-        break;
+    // case SKILL_STATE_EVS:
+    //     hp = sMonSummaryScreen->summary.evHp;
+    //     atk = sMonSummaryScreen->summary.evAtk;
+    //     def = sMonSummaryScreen->summary.evDef;
+    //     spA = sMonSummaryScreen->summary.evSpatk;
+    //     spD = sMonSummaryScreen->summary.evSpdef;
+    //     spe = sMonSummaryScreen->summary.evSpeed;
+    //     break;
     }
 
     FillWindowPixelBuffer(sMonSummaryScreen->windowIds[PSS_DATA_WINDOW_SKILLS_STATS_HP], 0);

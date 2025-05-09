@@ -1703,6 +1703,7 @@ static void CB2_LoadMapOnReturnToFieldCableClub(void)
 
 void CB2_ReturnToField(void)
 {
+    DebugPrintf("CB2_ReturnToField");
     if (IsOverworldLinkActive() == TRUE)
     {
         SetMainCallback2(CB2_ReturnToFieldLink);
@@ -1718,6 +1719,7 @@ static void CB2_ReturnToFieldLocal(void)
 {
     if (ReturnToFieldLocal(&gMain.state))
     {
+        DebugPrintf("CB2_ReturnToFieldLocal");
         SetFieldVBlankCallback();
         SetMainCallback2(CB2_Overworld);
     }
@@ -1748,6 +1750,7 @@ void CB2_ReturnToFieldFromMultiplayer(void)
 
 void CB2_ReturnToFieldWithOpenMenu(void)
 {
+    DebugPrintf("CB2_ReturnToFieldWithOpenMenu");
     FieldClearVBlankHBlankCallbacks();
     gFieldCallback2 = FieldCB_ReturnToFieldOpenStartMenu;
     CB2_ReturnToField();

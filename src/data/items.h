@@ -1916,6 +1916,7 @@ const struct Item gItemsInfo[] =
     {
         .name = _("Rare Candy"),
         .pluralName = _("Rare Candies"),
+        .holdEffectParam = 0,
         .price = (I_PRICE >= GEN_7) ? 10000 : 4800,
         .description = COMPOUND_STRING(
             "Raises the level\n"
@@ -1930,23 +1931,23 @@ const struct Item gItemsInfo[] =
         .iconPalette = gItemIconPalette_RareCandy,
     },
 
-    [ITEM_EXP_CANDY_XS] =
+    [ITEM_CAP_CANDY] =
     {
-        .name = _("Exp. Candy XS"),
-        .pluralName = _("Exp. Candies XS"),
-        .price = 20,
-        .holdEffectParam = EXP_100,
+        .name = _("Cap Candy"),
+        .pluralName = _("Cap Candy"),
+        .holdEffectParam = 1,
+        .price = (I_PRICE >= GEN_7) ? 10000 : 4800,
         .description = COMPOUND_STRING(
-            "Gives a very small\n"
-            "amount of Exp. to\n"
-            "a single Pokémon."),
-        .pocket = POCKET_ITEMS,
+            "Raises the level\n"
+            "of a Pokémon by\n"
+            "one."),
+        .pocket = POCKET_KEY_ITEMS,
         .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_RareCandy,
         .effect = gItemEffect_RareCandy,
         .flingPower = 30,
-        .iconPic = gItemIcon_ExpCandyXS,
-        .iconPalette = gItemIconPalette_ExpCandies,
+        .iconPic = gItemIcon_RareCandy,
+        .iconPalette = gItemIconPalette_RareCandy,
     },
 
     [ITEM_EXP_CANDY_S] =

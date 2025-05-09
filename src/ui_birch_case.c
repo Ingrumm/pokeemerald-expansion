@@ -46,6 +46,7 @@
 #include "script_menu.h"
 #include "random.h"
 #include "move.h"
+#include "pokedex_plus_hgss.h"
 
  /*
     9 Starter Selection Birch Case
@@ -910,6 +911,28 @@ static void Task_BirchCaseTurnOff(u8 taskId)
     }
 }
 
+
+static void CB2_ShowPokedexScreen2(void)
+{
+    if (!gPaletteFade.active)
+    {
+        IncrementGameStat(GAME_STAT_CHECKED_POKEDEX);
+        PlayRainStoppingSoundEffect();
+        CleanupOverworldWindowsAndTilemaps();
+        CB2_OpenPokedexInfoAtBriefcaseMon(SpeciesToNationalPokedexNum(sStarterChoices[sBirchCaseDataPtr->handPosition].species));
+    }
+}
+
+static void Task_BirchCaseTurnOffDex(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        SetMainCallback2(CB2_ShowPokedexScreen2);
+        BirchCaseFreeResources();
+        DestroyTask(taskId);
+    }
+}
+
 static bool8 BirchCase_InitBgs(void) // Init the bgs and bg tilemap buffers and turn sprites on, also set the bgs to blend
 {
     ResetAllBgsCoordinates();
@@ -975,6 +998,7 @@ static void BirchCase_InitWindows(void)
 {
     AddBagItem(209,5);
     AddBagItem(102,10);
+    AddBagItem(103,1);
     InitWindows(sMenuWindowTemplates);
     DeactivateAllTextPrinters();
     ScheduleBgCopyTilemapToVram(0);
@@ -996,6 +1020,7 @@ static const u8 sText_RerollButton[] = _("{SELECT_BUTTON}REROLL");
 static const u8 sText_RevealAStat[] = _("Reveal a stat! ");
 static const u8 sText_RevealsRemaining[] = _("Reveals remaining: ");
 static const u8 sText_RevealButtonBar[] = _("{A_BUTTON}REVEAL {B_BUTTON}CANCEL");
+static const u8 sText_PokedexButton[] = _("{L_BUTTON}POKéDEX");
 static const u8 sText_ItemOverviewTopLeft[] = _("Choose your item!");
 static const u8 sText_RerollTopLeft[] = _("Reroll the briefcase?");
 static const u8 sText_RerollWarning[] = _("Your D6 will be consumed on use!");
@@ -1158,6 +1183,7 @@ static void PrintTextToBottomBar(u8 textId)
                 newFontColor = FONT_RED;
             }
             AddTextPrinterParameterized4(WINDOW_BOTTOM_BAR, FONT_SMALL_NARROW, 124+58, 0, 0, 0, sMenuWindowFontColors[newFontColor], 0xFF, gStringVar1);
+            AddTextPrinterParameterized4(WINDOW_BOTTOM_BAR, FONT_SMALL_NARROW, 124+60, 10, 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, sText_PokedexButton);
 
             StringCopy(&speciesNameArray[0], GetSpeciesName(species)); //mon name
             AddTextPrinterParameterized4(WINDOW_BOTTOM_BAR, FONT_NORMAL, 15, 96, 0, 0, sMenuWindowFontColors[FONT_WHITE], 0xFF, &speciesNameArray[0]);
@@ -1745,7 +1771,18 @@ static void Task_BirchCaseMain(u8 taskId)
         BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 16, RGB_BLACK);
         gTasks[taskId].func = Task_BirchCaseTurnOff;
         return;
-
+    }
+    if(JOY_NEW(L_BUTTON))
+    {
+        for(int i=0; i<9; i++) {
+            gSaveBlock3Ptr->briefcaseMons[i] = sStarterChoices[i];
+            gSaveBlock3Ptr->briefcaseItems[i] = sItemChoices[i];
+            gSaveBlock3Ptr->briefcaseHidden[i] = sHiddenInfo[i];
+        }
+        FlagSet(FLAG_BRIEFCASE_OPENED);
+        BeginNormalPaletteFade(0xFFFFFFFF, 0, 0, 16, RGB_BLACK);
+        gTasks[taskId].func = Task_BirchCaseTurnOffDex;
+        return;
     }
 }
 
